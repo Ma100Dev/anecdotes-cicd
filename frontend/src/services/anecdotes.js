@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-const baseUrl = 'http://localhost:3001/anecdotes'
+const PORT = process.env.PORT || 3000
+const baseUrl = `http://localhost:${PORT}/api/anecdotes`
 
 const getId = () => (100000 * Math.random()).toFixed(0)
 
@@ -29,4 +30,5 @@ const setLikes = async (id) => {
     return response.data
 }
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default { getAll, add, setLikes }

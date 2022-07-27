@@ -17,12 +17,11 @@
     "web-vitals": "^1.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "cd frontend && npm install && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "node backend/server.js",
-    "eslint": "eslint ."
+    "start": "npm run build && node backend/server.js",
+    "eslint": "eslint './**/*.{js,jsx}'"
   },
   "eslintConfig": {
     "extends": [
@@ -43,6 +42,7 @@
     ]
   },
   "devDependencies": {
+    "cypress": "^10.3.1",
     "redux-devtools-extension": "^2.13.9"
   }
 }
