@@ -20,11 +20,8 @@ jobs:
           node-version: "16"
       - name: npm install
         run: npm install
-      - name: Run linter
-        uses: wearerequired/lint-action@v2
-        with:
-          eslint: true
-          auto_fix: true
+      - name: lint
+        run: npm run eslint
       - name: build
         run: |
           rm frontend/package.json
