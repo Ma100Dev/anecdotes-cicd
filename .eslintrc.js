@@ -4,7 +4,6 @@ module.exports = {
     'node': true,
     "browser": true,
     "es6": true,
-    "jest/globals": true
   },
   "extends": [
     "eslint:recommended",
@@ -17,9 +16,6 @@ module.exports = {
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": [
-    "react", "jest"
-  ],
   "settings": {
     "react": {
       "version": "detect",
