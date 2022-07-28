@@ -52,6 +52,5 @@ module.exports = {
     ],
     "no-console": "error",
     "react/prop-types": 0,
-    "no-anonymous-default-export": 0
   }
 }
