@@ -1,3 +1,4 @@
+/* eslint no-case-declarations: 0 */
 import anecdoteService from '../services/anecdotes';
 
 const initialState = [];
