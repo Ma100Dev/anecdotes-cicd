@@ -39,4 +39,5 @@ jobs:
           heroku_email: ${{secrets.HEROKU_EMAIL}}
           healthcheck: "https://protected-hamlet-57616.herokuapp.com/health"
           checkstring: "ok"
-          rollbackonhealthcheckfailed: false #SHOULD BE TRUE!
+          rollbackonhealthcheckfailed: true
+          delay: "5"
