@@ -5,7 +5,7 @@
     "node": "16.x"
   },
   "dependencies": {
-    "@testing-library/user-event": "12.8.3",
+    "@testing-library/user-event": "14.3.0",
     "axios": "0.27.2",
     "cross-env": "7.0.3",
     "json-server": "0.17.0",
