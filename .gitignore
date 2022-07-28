@@ -41,3 +41,5 @@ cypress/videos
 cypress/screenshots
 
 auth.txt
+
+backend/db.json
