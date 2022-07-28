@@ -1,0 +1,41 @@
+name: Ensure version tagging
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches: [master]
+    types: [opened]
+
+jobs:
+  bump-version:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: "Checkout source code"
+        uses: "actions/checkout@v2"
+        with:
+          ref: ${{ github.ref }}
+      - name: "Setup Node.js"
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+      - name: "Automated version bump"
+        if: ${{ ( github.event_name == 'pull_request' ) && (!contains(github.event.head_commit.message, '#skip')) }}
+        uses: "phips28/gh-action-bump-version@master"
+        with:
+          tag-prefix: ""
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Extract package version
+        if: ${{ ( github.event_name == 'push' ) && (!contains(github.event.head_commit.message, '#skip')) }}
+        run: node -p -e '`PACKAGE_VERSION=${require("./package.json").version}`' >> $GITHUB_ENV
+      - name: Package version to git tag
+        if: ${{ ( github.event_name == 'push' ) && (!contains(github.event.head_commit.message, '#skip')) }}
+        uses: pkgdeps/git-tag-action@v2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_repo: ${{ github.repository }}
+          version: ${{ env.PACKAGE_VERSION }}
+          git_commit_sha: ${{ github.sha }}
+          git_tag_prefix: "v"
