@@ -21,6 +21,7 @@ jobs:
         with:
           node-version: "16"
       - name: "Automated version bump"
+        continue-on-error: true
         if: ${{ ( github.event_name == 'pull_request' ) && (!contains(github.event.head_commit.message, '#skip')) }}
         uses: "phips28/gh-action-bump-version@master"
         with:
