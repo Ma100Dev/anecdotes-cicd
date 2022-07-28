@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-const PORT = process.env.PORT || 3000;
-const baseUrl = `http://localhost:${PORT}/api/anecdotes`;
+const baseUrl = '/api/anecdotes';
 
 const getId = () => (100000 * Math.random()).toFixed(0);
 
