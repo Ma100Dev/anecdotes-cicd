@@ -3,11 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.6.3",
     "axios": "^0.24.0",
     "json-server": "^0.17.0",
+    "json-server-reset": "^1.3.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-redux": "^7.2.6",
@@ -18,9 +17,12 @@
   },
   "scripts": {
     "build": "cd frontend && npm install && react-scripts build",
-    "test": "react-scripts test",
+    "test": "cypress run",
+    "cypress:open": "cypress open",
     "eject": "react-scripts eject",
-    "start": "npm run build && node backend/server.js",
+    "start": "cross-env NODE_ENV=production npm run build && node backend/server.js",
+    "start:dev": "cross-env NODE_ENV=development npm run build && node backend/server.js",
+    "dev": "nodemon --exec \"npm run start:dev\" -e \"js,jsx\" --ignore \"frontend/build\" --ignore \"cypress/\" -d 2",
     "eslint": "eslint './**/*.{js,jsx}'"
   },
   "eslintConfig": {
@@ -42,7 +44,9 @@
     ]
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "cypress": "^10.3.1",
+    "nodemon": "^2.0.19",
     "redux-devtools-extension": "^2.13.9"
   }
 }

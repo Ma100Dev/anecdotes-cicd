@@ -15,7 +15,7 @@ const AnecdoteForm = (props) => {
     return (
         <>
             <h2 style={{ marginBottom: '0px' }}>create new</h2>
-            <form onSubmit={addAnecdote}>
+            <form id="createAnecdoteForm" onSubmit={addAnecdote}>
                 <div style={{ display: 'inline' }}>
                     <input name="content" required="required" />
                     <button>create</button>

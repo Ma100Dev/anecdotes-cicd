@@ -14,28 +14,34 @@ const AnecdoteList = () => {
         dispatch(like(id))
     }
 
-    return anecdotes
-        .filter(a => (a.content.toUpperCase().includes(filter.toUpperCase())))
-        .sort((a, b) => {
-            if (a.votes < b.votes) {
-                return 1
-            } else if (a.votes > b.votes) {
-                return -1
-            } else {
-                return 0
+    return (
+        <div id='anecdoteList'>
+            {
+                anecdotes
+                    .filter(a => (a.content.toUpperCase().includes(filter.toUpperCase())))
+                    .sort((a, b) => {
+                        if (a.votes < b.votes) {
+                            return 1
+                        } else if (a.votes > b.votes) {
+                            return -1
+                        } else {
+                            return 0
+                        }
+                    })
+                    .map(anecdote =>
+                        <div key={anecdote.id} id="anecdote">
+                            <div id="anecdoteContent">
+                                {anecdote.content}
+                            </div>
+                            <div id="votes">
+                                <b>has {anecdote.votes} votes</b>
+                                <button style={{ marginLeft: '5px', fontWeight: 'bold', backgroundColor: '#d4d4d4' }} onClick={() => vote(anecdote.id)}>vote</button>
+                            </div>
+                            <br />
+                        </div>
+                    )
             }
-        })
-        .map(anecdote =>
-            <div key={anecdote.id}>
-                <div>
-                    {anecdote.content}
-                </div>
-                <div>
-                    <b>has {anecdote.votes} votes</b>
-                    <button style={{ marginLeft: '5px', fontWeight: 'bold', backgroundColor: '#d4d4d4' }} onClick={() => vote(anecdote.id)}>vote</button>
-                </div>
-                <br />
-            </div>
-        )
+        </div>
+    )
 }
 export default AnecdoteList
