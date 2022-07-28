@@ -25,7 +25,8 @@
     "start": "cross-env NODE_ENV=production npm run build && node backend/server.js",
     "start:dev": "cross-env NODE_ENV=development npm run build && node backend/server.js",
     "dev": "nodemon --exec \"npm run start:dev\" -e \"js,jsx\" --ignore \"frontend/build\" --ignore \"cypress/\" -d 2",
-    "eslint": "eslint './**/*.{js,jsx}'"
+    "eslint": "eslint './**/*.{js,jsx}'",
+    "heroku": "ln -s $PWD/package.json $PWD/frontend/package.json && npm start"
   },
   "eslintConfig": {
     "extends": [
