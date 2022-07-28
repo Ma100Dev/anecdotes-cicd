@@ -47,7 +47,6 @@ if (ENV.toUpperCase() === 'PRODUCTION') {
   };
   router = jsonServer.router(JSON.parse(JSON.stringify(initialDb)));
   server.post('/reset', (req, res) => {
-    console.log(Object.assign({}, initialDb));
     router.db.setState(JSON.parse(JSON.stringify(initialDb)));
     router.db.write();
     res.sendStatus(200);
@@ -60,6 +59,9 @@ if (ENV.toUpperCase() === 'PRODUCTION') {
 const middlewares = jsonServer.defaults();
 server.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/../frontend/build/index.html'));
+});
+server.get('health', (req, res) => {
+  res.send('ok');
 });
 
 server.use(middlewares);
