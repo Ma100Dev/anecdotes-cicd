@@ -30,4 +30,5 @@ const setLikes = async (id) => {
   return response.data;
 };
 
-export default { getAll, add, setLikes };
+const exports = { getAll, add, setLikes };
+export default exports;
