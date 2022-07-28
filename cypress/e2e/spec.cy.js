@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 describe('Tests', () => {
   beforeEach(function () {
-    resetDatabase();
+    cy.request('POST', 'http://localhost:3000/reset');
     cy.viewport(1920, 911);
     cy.visit('http://localhost:3000');
   });
