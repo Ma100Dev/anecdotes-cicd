@@ -1,24 +1,24 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { setFilter } from '../reducers/filterReducer'
+import React from 'react';
+import { connect } from 'react-redux';
+import { setFilter } from '../reducers/filterReducer';
 
 const Filter = (props) => {
-    const handleChange = (event) => {
-        props.setFilter(event.target.value)
-    }
-    const style = {
-        marginBottom: 10
-    }
+  const handleChange = (event) => {
+    props.setFilter(event.target.value);
+  };
+  const style = {
+    marginBottom: 10
+  };
 
-    return (
-        <div style={style}>
+  return (
+    <div style={style}>
             filter <input onChange={handleChange} />
-        </div>
-    )
-}
+    </div>
+  );
+};
 
 const Connected = connect(
-    null,
-    { setFilter }
-)(Filter)
-export default Connected
+  null,
+  { setFilter }
+)(Filter);
+export default Connected;
