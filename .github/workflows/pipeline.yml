@@ -27,7 +27,8 @@ jobs:
           auto_fix: true
       - name: build
         run: |
-          ln -s package.json frontend/package.json
+          rm frontend/package.json
+          ln -s $PWD/package.json $PWD/frontend/package.json
           npm run build
       - name: tests (e2e)
         uses: cypress-io/github-action@v2
