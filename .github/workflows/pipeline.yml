@@ -23,10 +23,7 @@ jobs:
       - name: lint
         run: npm run eslint
       - name: build
-        run: |
-          rm frontend/package.json
-          ln -s $PWD/package.json $PWD/frontend/package.json
-          npm run build
+        run: npm run build
       - name: tests (e2e)
         uses: cypress-io/github-action@v2
         with:
