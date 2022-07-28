@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = `/api/anecdotes`;
+const baseUrl = '/api/anecdotes';
 
 const getId = () => (100000 * Math.random()).toFixed(0);
 
