@@ -9,7 +9,7 @@ on:
     types: [opened, synchronize]
 
 jobs:
-  simple_deployment_pipeline:
+  deployment_pipeline:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
@@ -20,8 +20,11 @@ jobs:
           node-version: "16"
       - name: npm install
         run: npm install
-      - name: lint
-        run: npm run eslint
+      - name: Run linter
+        uses: wearerequired/lint-action@v2
+        with:
+          eslint: true
+          auto_fix: true
       - name: build
         run: npm run build
       - name: tests (e2e)
