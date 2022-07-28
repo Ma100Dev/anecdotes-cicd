@@ -26,7 +26,9 @@ jobs:
           eslint: true
           auto_fix: true
       - name: build
-        run: npm run build
+        run: |
+          ln -s package.json frontend/package.json
+          npm run build
       - name: tests (e2e)
         uses: cypress-io/github-action@v2
         with:
