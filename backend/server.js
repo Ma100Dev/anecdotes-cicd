@@ -60,7 +60,7 @@ const middlewares = jsonServer.defaults();
 server.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/../frontend/build/index.html'));
 });
-server.get('health', (req, res) => {
+server.get('/health', (req, res) => {
   res.send('ok');
 });
 
