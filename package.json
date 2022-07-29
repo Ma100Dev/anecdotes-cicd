@@ -12,10 +12,10 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-redux": "8.0.2",
-    "react-scripts": "4.0.3",
+    "react-scripts": "5.0.1",
     "redux": "4.2.0",
     "redux-thunk": "2.4.1",
-    "web-vitals": "1.1.2"
+    "web-vitals": "2.1.4"
   },
   "scripts": {
     "build": "rm $PWD/frontend/package.json && ln -s $PWD/package.json $PWD/frontend/package.json && cd frontend && npm install && react-scripts build",
