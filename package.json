@@ -18,13 +18,13 @@
     "web-vitals": "2.1.4"
   },
   "scripts": {
-    "build": "rm $PWD/frontend/package.json && ln -s $PWD/package.json $PWD/frontend/package.json && cd frontend && npm install && react-scripts build",
+    "build": "rm -rf frontend/build && react-scripts build && mv build frontend/",
     "test": "cypress run",
     "cypress:open": "cypress open",
     "eject": "react-scripts eject",
     "start": "npm run build && cross-env NODE_ENV=production node backend/server.js",
     "start:dev": "npm run build && cross-env NODE_ENV=development node backend/server.js",
-    "dev": "nodemon --exec \"npm run start:dev\" -e \"js,jsx\" --ignore \"frontend/build\" --ignore \"cypress/\" -d 2",
+    "dev": "nodemon --exec \"npm run start:dev\" -e \"js,jsx\" --ignore \"build/\" --ignore \"frontend/\" --ignore \"cypress/\" -d 2",
     "eslint": "eslint './**/*.{js,jsx}'"
   },
   "eslintConfig": {
