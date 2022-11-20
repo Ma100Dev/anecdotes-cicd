@@ -2,7 +2,7 @@
   "name": "redux-anecdotes",
   "version": "0.1.6",
   "engines": {
-    "node": "16.x"
+    "node": "18.x"
   },
   "dependencies": {
     "axios": "0.27.2",
