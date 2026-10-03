@@ -19,7 +19,7 @@ jobs:
       - name: "Setup Node.js"
         uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: "24"
       - name: "Automated version bump"
         continue-on-error: true
         if: ${{ ( github.event_name == 'pull_request' ) && (!contains(github.event.head_commit.message, '#skip')) }}
